@@ -23,6 +23,13 @@ function init () {
       require('devtron').install();
     }
     mainWindow.on('closed', () => { mainWindow = null; });
+    // 监听获取打印机列表事件
+    ipcMain.on('getPrinterList', (event) => {
+      //主线程获取打印机列表
+      const list = mainWindow.webContents.getPrinters();
+      //通过webContents发送事件到渲染线程，同时将打印机列表也传过去
+      mainWindow.webContents.send('getPrinterList', list);
+  });
   };
 
   app.on('ready', () => {
