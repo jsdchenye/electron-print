@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打印内容</title>
+    <style>
+      body,html {
+        padding: 0px;
+        margin: 0px;
+        background-color: #aaaaaa;
+      }
+      @page {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body id="print">我就是需要打印的内容，来看我啊！！</body>
+  <script>
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.on('webview-print-render', () => {
+      //执行渲染
+      // document.getElementById('print').innerHTML = '可以动态添加需要执行的内容';
+      // 告诉打印机，我这边渲染的内容已经好了，可以打印了
+      ipcRenderer.sendToHost('webview-print-do');
+    });
+  </script>
+</html>
