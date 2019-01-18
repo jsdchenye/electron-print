@@ -2,7 +2,7 @@
   "name": "electron-print",
   "version": "1.0.0",
   "description": "使用electron进行print的自动打印",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
@@ -20,7 +20,6 @@
   "homepage": "https://github.com/jsdchenye/electron-print#readme",
   "dependencies": {
     "devtron": "^1.4.0",
-    "electron": "^4.0.1",
-    "electron-packager": "^13.0.1"
+    "electron": "^2.0.0"
   }
 }

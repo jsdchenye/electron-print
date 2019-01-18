@@ -6,8 +6,10 @@
   </head>
 
   <body>
-    <button id="print-btn">打印</button>
-    <webview id="print-webview" src="../print/print.html" nodeintegration style="visibility: hidden"></webview>
+    <button id="print-btn" style="width: 100px; height: 30px">打印</button>
+    <div>
+      <webview id="print-webview" src="../print/print.html" nodeintegration style="visibility: hidden"></webview>
+    </div>
     <script>
       require('./index')
     </script>
