@@ -9,14 +9,20 @@
       body,html {
         padding: 0px;
         margin: 0px;
-        background-color: #aaaaaa;
       }
       @page {
         margin: 10px;
       }
+      #print {
+        height: 100px;
+        overflow: hidden;
+        background-color: #eee;
+      }
     </style>
   </head>
-  <body id="print">我就是需要打印的内容，来看我啊！！</body>
+  <body>
+    <div id="print">我就是需要打印的内容，来看我啊XXXXXXX！！</div>
+  </body>
   <script>
     const { ipcRenderer } = require('electron');
     ipcRenderer.on('webview-print-render', () => {

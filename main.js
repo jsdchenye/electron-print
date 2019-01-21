@@ -5,7 +5,21 @@ let mainWindow = null;
 // 是否是 debug 模式
 const debug = /--debug/.test(process.argv[2]);
 
+function makeSingleInstance() {
+  if (process.mas) return false;
+  return app.makeSingleInstance(() => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized())
+        mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
+}
+
 function init () {
+  const shouldQuit = makeSingleInstance();
+  if (shouldQuit)
+    return app.quit();
   // 创建用来交互的 window 窗口
   function createWindow() {
     const windowOptions = {

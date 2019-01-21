@@ -20,12 +20,14 @@ printBtn.addEventListener('click', () => {
 });
 
 // 当 webview 中引入的文件执行了 ipcRenderer.sendToHost 发送事件之后，就会触发执行下面操作
-webview.addEventListener('ipc-message', () => {
-  if (event.channel === 'webview-print-do') {
-    webview.print({
-      silent: false,
-      printBackground: true,
-      deviceName: deviceName,
-    }, (data) => { console.log("webview success", data); });
-  }
-});
+onload = () => {
+  webview.addEventListener('ipc-message', () => {
+    if (event.channel === 'webview-print-do') {
+      webview.print({
+        silent: true,
+        printBackground: true,
+        deviceName: deviceName,
+      }, (data) => { console.log("webview success", data); });
+    }
+  });
+};
