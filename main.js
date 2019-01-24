@@ -1,3 +1,4 @@
+const temp = require('electron');
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path')
 
@@ -17,9 +18,10 @@ function makeSingleInstance() {
 }
 
 function init () {
-  const shouldQuit = makeSingleInstance();
-  if (shouldQuit)
-    return app.quit();
+  // const shouldQuit = makeSingleInstance();
+  // if (shouldQuit)
+  //   return app.quit();
+  console.error(temp, '###');
   // 创建用来交互的 window 窗口
   function createWindow() {
     const windowOptions = {
