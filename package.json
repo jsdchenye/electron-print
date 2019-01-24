@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/jsdchenye/electron-print#readme",
   "dependencies": {
-    "devtron": "^1.4.0",
-    "electron": "^2.0.0"
+    "electron": "^4.0.2"
   }
 }
